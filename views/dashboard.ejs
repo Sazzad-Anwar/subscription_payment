@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/materialize.css">
+    <link rel="stylesheet" href="../css/uikit.css">
+    <script src="../js/materialize.js"></script>
+    <script src="../js/uikit.js"></script>
+    <title>Dashboard</title>
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="uk-container uk-margin-large-top">
+        <div class=" uk-child-width-1-3" uk-grid>
+            <div></div>
+            <div class="uk-margin border uk-padding uk-border-rounded shadow-lg uk-card">
+                <h1>Royal Gymnasium</h1>
+                <br>
+                <div class="uk-card-body uk-padding-remove" id="details">
+                    <ul class="uk-list uk-list-divider">
+                        <li>
+                            <h3><%= name %> </h3>
+                        </li>
+                        <li>
+                            <h4>Subscription Month: July</h4>
+                        </li>
+                        <li>
+                            <h4>Subscription Amount: BDT 500</h4>
+                        </li>
+                        <li>
+                            <h4>Subscription Status: <%= status %> </h4>
+                        </li>
+                        <!-- <li>
+                            <h4>Due Amount: BDT <%= due %> </h4>
+                        </li> -->
+                        <% if (status == 'Paid') { %>
+                            <li><a href="/" style="text-decoration: none;" class="white-text btn btn-danger btn-lg btn-block">Log Out</a></li>
+                        <% }else{ %> 
+                        <li><button id="button" class="btn btn-primary btn-lg btn-block">Pay</button></li>
+                        <li><a href="/" style="text-decoration: none;" class="white-text btn btn-primary btn-lg btn-block">Log Out</a></li>
+                        <% } %> 
+                    </ul>
+                </div>
+                <div class="uk-card-body uk-padding-remove uk-hidden" id="payment">
+                    <form action="<%= eblPay %>" method="post">
+                        <div class="input-field ">
+                            <input type="text" name="orderid" id="order" value="<%= order_id %>" readonly>
+                            <input type="text" name="merchant_name" value="Royal Gymnasium" hidden>
+                            <input type="text" name="subscription_amount" value="<%= subscription_amount %>" hidden>
+                            <label for="order">Payment ID</label>
+                        </div>
+                        <div class="input-field ">
+                            <input type="text" name="name" id="name" value="<%= name %>" readonly>
+                            <label for="name">Subscriber Name</label>
+                        </div>
+                        <div class="input-field ">
+                            <input type="tel" name="phone" class="validate" id="phone" min="11" required>
+                            <label for="phone">Subscriber's Phone</label>
+                        </div>
+                        <div class="input-field ">
+                            <input type="text" name="subscriber_id" id="email" value="<%= id %>" readonly>
+                            <label for="email">Subscriber ID</label>
+                        </div>
+                        <div class="input-field ">
+                            <input id="password" name="amount" value="<%= subscription_amount %>" type="number" readonly>
+                            <label for="password">Payment Amount</label>
+                        </div>
+                        <div class="input-field ">
+                            <button type="submit" class="btn btn-lg btn-secondary form-control"> Proceed to pay
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('button').addEventListener('click', e=>{
+            e.preventDefault();
+            document.getElementById('details').classList.add('uk-hidden');
+            document.getElementById('payment').classList.remove('uk-hidden');
+        })
+    </script>
+</body>
+
+</html>

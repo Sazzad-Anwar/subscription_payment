@@ -1,0 +1,148 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Bree Serif", Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a {
+    font-family: "Bree Serif", Times, serif !important;
+}
+
+a {
+    text-decoration: none !important;
+    border: none;
+}
+
+.uk-navbar-dropbar-slide {
+    background-color: transparent !important;
+}
+
+html,
+body {
+    overflow: hidden    ;
+}
+
+.container,
+.sections,
+.section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+}
+
+.section:first-child h1 {
+    animation: first-show .3s;
+}
+
+.socialNetwork {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    font-size: 15px;
+    top: 20% !important;
+    left: 0px !important;
+    z-index: 4;
+}
+
+[data-fs-scroll] .page li {
+    width: 15px !important;
+    height: 18px !important;
+    background: rgba(255,255,255,.6);
+    border-radius: 50%;
+    padding: 5px 2px;
+    cursor: pointer;
+}
+  
+  [data-fs-scroll] .page li.active {
+    width: 15px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    background: #fff;
+  }
+
+.section1,
+.section2,
+.section3,
+.section4 {
+    margin-top: -23px !important;
+    margin-bottom: 8px;
+}
+
+
+.section h1.text-animate {
+    left: 0px;
+    transform: translateX(-100%);
+}
+
+@keyframes first-show {
+    0% {
+        left: 0px;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.dropdown-nav>li>a {
+    font-size: 15px !important;
+}
+
+.uk-navbar-nav-li a:hover,
+.dropdown-nav>li>a:hover {
+    color: #042433 !important;
+    font-weight: bolder;
+    font-size: 24px;
+    transition: ease-in-out .4s !important;
+}
+
+.uk-sticky-placeholder,
+.uk-navbar-container {
+    height: 70px !important;
+}
+
+.uk-navbar {
+    /* background: linear-gradient(to top left, #c8e1ec, #7FCEF4, #36a6da) !important; */
+    background: #18a6e7 !important;
+}
+
+.bg {
+    background: #18a6e7;
+}
+
+.white-text {
+    color: #fff !important;
+}
+
+.blue-text {
+    color: #18a6e7;
+}
+
+.img-brightness {
+    filter: brightness(80%);
+}
+
+.socialNetwork>a>img {
+    height: 40px !important;
+    padding: 3px 0px !important;
+}
+
+.uk-close-large {
+    font-weight: bolder;
+    color: #ffff !important;
+    padding-bottom: 10px !important;
+}
