@@ -37,36 +37,48 @@
                 <h1>Royal Gymnasium</h1>
                 <br>
                 <div class="uk-card-body uk-padding-remove" id="details">
+
                     <ul class="uk-list uk-list-divider">
                         <li>
                             <h3><%= name %> </h3>
                         </li>
+                    </ul>
+                    <ul class="uk-list uk-list-divider"> 
                         <li>
-                            <h4>Subscription Month: July</h4>
+                            <h4>Subscription Month : July</h4>
                         </li>
                         <li>
-                            <h4>Subscription Amount: BDT 500</h4>
+                            <h4>Subscription Amount : BDT <b><%= subscription_amount %></b> </h4>
                         </li>
                         <li>
-                            <h4>Subscription Status: <%= status %> </h4>
+                            <h4>Laundry Bill : BDT <b><%= laundry %></b> </h4>
                         </li>
-                        <!-- <li>
-                            <h4>Due Amount: BDT <%= due %> </h4>
-                        </li> -->
+                        <li>
+                            <h4>Food Bill : BDT <b><%= food %></b> </h4>
+                        </li>
+                        <li>
+                            <h4>Others Bill : BDT <b><%= others %></b> </h4>
+                        </li>
+                        <li>
+                            <h4>Total Bill : BDT <b><%= total %></b> </h4>
+                        </li>
+                        <li>
+                            <h4>Subscription Status: <b><%= status %></b> </h4>
+                        </li>
                         <% if (status == 'Paid') { %>
-                            <li><a href="/" style="text-decoration: none;" class="white-text btn btn-danger btn-lg btn-block">Log Out</a></li>
+                            
                         <% }else{ %> 
                         <li><button id="button" class="btn btn-primary btn-lg btn-block">Pay</button></li>
-                        <li><a href="/" style="text-decoration: none;" class="white-text btn btn-primary btn-lg btn-block">Log Out</a></li>
                         <% } %> 
                     </ul>
+                    <li><a href="/" style="text-decoration: none;" class="white-text btn btn-primary btn-lg btn-block">Log Out</a></li>
                 </div>
                 <div class="uk-card-body uk-padding-remove uk-hidden" id="payment">
                     <form action="<%= eblPay %>" method="post">
                         <div class="input-field ">
                             <input type="text" name="orderid" id="order" value="<%= order_id %>" readonly>
                             <input type="text" name="merchant_name" value="Royal Gymnasium" hidden>
-                            <input type="text" name="subscription_amount" value="<%= subscription_amount %>" hidden>
+                            <input type="text" name="subscription_amount" value="<%= total %>" hidden>
                             <label for="order">Payment ID</label>
                         </div>
                         <div class="input-field ">
@@ -82,7 +94,7 @@
                             <label for="email">Subscriber ID</label>
                         </div>
                         <div class="input-field ">
-                            <input id="password" name="amount" value="<%= subscription_amount %>" type="number" readonly>
+                            <input id="password" name="amount" value="<%= total %>" type="number" readonly>
                             <label for="password">Payment Amount</label>
                         </div>
                         <div class="input-field ">
