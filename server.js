@@ -34,7 +34,6 @@ db.db.getConnection(err =>{
     }
 });
 
-
 app.route('/')
 .get((req,res)=>{
     res.render('login');

@@ -74,7 +74,7 @@
                     <li><a href="/" style="text-decoration: none;" class="white-text btn btn-primary btn-lg btn-block">Log Out</a></li>
                 </div>
                 <div class="uk-card-body uk-padding-remove uk-hidden" id="payment">
-                    <form action="<%= eblPay %>" method="post">
+                    <form action="http://localhost/nagad/process.php" method="post">
                         <div class="input-field ">
                             <input type="text" name="orderid" id="order" value="<%= order_id %>" readonly>
                             <input type="text" name="merchant_name" value="Royal Gymnasium" hidden>
